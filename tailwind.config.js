@@ -1,6 +1,10 @@
+const production = process.env.NODE_ENV === 'production';
+
 module.exports = {
-  purge: ['./src/**/*.vue'],
-  target: 'relaxed',
+  purge: {
+    content: ['./src/**/*.vue'],
+    enabled: production,
+  },
   prefix: '',
   important: false,
   separator: ':',
@@ -593,7 +597,7 @@ module.exports = {
       none: 'none',
       all: 'all',
       default:
-          'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform',
+        'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform',
       colors: 'background-color, border-color, color, fill, stroke',
       opacity: 'opacity',
       shadow: 'box-shadow',
@@ -841,4 +845,4 @@ module.exports = {
     zIndex: false,
   },
   plugins: [],
-}
+};
